@@ -29,7 +29,7 @@
 export default {
   methods: {
     closePopup() {
-      this.$emit("closePopup");
+      this.$emit("togglePopup");
     }
   }
 };
