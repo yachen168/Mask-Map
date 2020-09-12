@@ -1,6 +1,6 @@
 <template>
   <div class="popup-wrapper">
-    <div class="close" @click="closePopup">
+    <div class="close" @click="$emit('togglePopup')">
       <img src="@/assets/images/close.png" alt="" />
     </div>
     <div class="popup">
@@ -27,11 +27,6 @@
 
 <script>
 export default {
-  methods: {
-    closePopup() {
-      this.$emit("togglePopup");
-    }
-  }
 };
 </script>
 
@@ -94,6 +89,7 @@ export default {
       border: 2px solid #ffffff;
       border-radius: 27px;
       font-weight: 500;
+      text-decoration: none;
     }
     a:first-child {
       color: #34495e;
