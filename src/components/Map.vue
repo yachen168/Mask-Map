@@ -60,7 +60,7 @@ import { LMap, LTileLayer, LMarker, LPopup, LIcon } from "vue2-leaflet";
 import StockBoard from "./StockBoard";
 
 export default {
-  name: "MyAwesomeMap",
+  name: "Map",
   components: {
     LMap,
     LTileLayer,

@@ -6,21 +6,14 @@
     </div>
     <div class="menu">
       <div class="menu-item active">口罩供給現況</div>
-      <div
-        class="menu-item"
-        @click="
-          openPopup();
-          toggleNavBar();
-        "
-      >
-        口罩怎麼買
-      </div>
+      <div class="menu-item" @click="openPopup">口罩怎麼買</div>
     </div>
   </nav>
 </template>
 
 <script>
 export default {
+  name: "Navbar",
   data() {
     return {
       isNavBarOpen: false,
@@ -31,6 +24,7 @@ export default {
   methods: {
     openPopup() {
       this.$emit("togglePopup");
+      this.toggleNavBar();
     },
     toggleNavBar() {
       this.isNavBarOpen = !this.isNavBarOpen;
