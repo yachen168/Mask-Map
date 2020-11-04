@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: "StockBoard",
   props: {
     stockOfMask: {
       type: Number,

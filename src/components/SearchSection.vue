@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  name: "SearchSection"
 };
 </script>
 
