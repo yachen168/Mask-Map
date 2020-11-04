@@ -1,18 +1,22 @@
 <template>
   <section class="info-card">
     <div class="mask-quantity-wrapper">
-      <StockBoard :stockOfMask="storeInfo.mask_adult">成人口罩數量</StockBoard>
-      <StockBoard :stockOfMask="storeInfo.mask_child">兒童口罩數量</StockBoard>
+      <StockBoard :stockOfMask="storeInfo.properties.mask_adult"
+        >成人口罩數量</StockBoard
+      >
+      <StockBoard :stockOfMask="storeInfo.properties.mask_child"
+        >兒童口罩數量</StockBoard
+      >
     </div>
-    <div class="info-card-title" :class="{closed: isClosed}">
-      <h1 class="store-name">{{ storeInfo.name }}</h1>
-      <h4 class="distance">1.2 km</h4>
-      <h4 class="store-status">{{isClosed?'休息中':'營業中'}}</h4>
+    <div class="info-card-title" :class="{ closed: isClosed }">
+      <h1 class="store-name">{{ storeInfo.properties.name }}</h1>
+      <h4 class="distance">{{ storeInfo.properties.distance }} km</h4>
+      <h4 class="store-status">{{ isClosed ? "休息中" : "營業中" }}</h4>
     </div>
     <div class="info-card-body">
       <div class="item">
         <h3 class="address">
-          <span>地址</span><span>{{ storeInfo.address }}</span>
+          <span>地址</span><span>{{ storeInfo.properties.address }}</span>
         </h3>
         <a
           class="link"
@@ -23,15 +27,19 @@
       </div>
       <div class="item">
         <h3 class="phone">
-          <span>電話</span><span>{{ storeInfo.phone }}</span>
+          <span>電話</span><span>{{ storeInfo.properties.phone }}</span>
         </h3>
-        <a class="link" :href="`tel:+${storeInfo.phone}`">撥打電話</a>
+        <a class="link" :href="`tel:+${storeInfo.properties.phone}`"
+          >撥打電話</a
+        >
       </div>
       <div class="item">
         <h3 class="note">
           <span>備註</span
           ><span>{{
-            storeInfo.custom_note ? storeInfo.custom_note : "-"
+            storeInfo.properties.custom_note
+              ? storeInfo.properties.custom_note
+              : "-"
           }}</span>
         </h3>
       </div>
@@ -43,6 +51,7 @@
 import StockBoard from "./StockBoard";
 
 export default {
+  name: "InfoCard",
   props: {
     storeInfo: {
       type: Object,
@@ -57,7 +66,7 @@ export default {
     StockBoard
   },
   computed: {
-    isClosed(){
+    isClosed() {
       const today = new Date().getDay();
       return this.storeServicePeriods[today] === "Y";
     }
@@ -87,9 +96,9 @@ export default {
       border-radius: 0px 4px 4px 0px;
     }
     .store-status {
-        background-color: #e7f5f3;
-        color: #16a085;
-      }
+      background-color: #e7f5f3;
+      color: #16a085;
+    }
     .store-name {
       margin-right: 5px;
       line-height: 1.2;
