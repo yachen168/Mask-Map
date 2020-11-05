@@ -1,12 +1,13 @@
 # Mask Map 即時查
+即時顯示距離使用者方圓 1 公里藥局資訊與成人/兒童口罩存量，亦可手動搜尋全台藥局。
 
 ![](./demo.png)
 
 ## 使用技術
 - Vue CLI
 - Vuex
-- [Vue2Leaflet](https://github.com/vue-leaflet/Vue2Leaflet)
-- [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
+- Vue2Leaflet
+- vue2-leaflet-markercluster
 
 <br>
 
